@@ -85,6 +85,10 @@ LOCAL_CFLAGS += \
 	-DSIZEOF_SIZE_T=4 \
 
 else ifeq ($(TARGET_ARCH_ABI),armeabi)
+LOCAL_SRC_FILES += \
+	$(SOURCE_PATH)/simd/jsimd_arm.c \
+	$(SOURCE_PATH)/simd/jsimd_arm_neon.S \
+
 LOCAL_CFLAGS += \
 	-DSIZEOF_SIZE_T=4 \
 
@@ -199,4 +203,5 @@ LOCAL_CFLAGS += \
 	-DSTDC_HEADERS=1 \
 	-DWITH_SIMD=1 \
 
-include $(BUILD_STATIC_LIBRARY)
+#include $(BUILD_STATIC_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
